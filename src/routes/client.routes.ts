@@ -10,20 +10,34 @@ import {
 import {
   createClientSerializer
 } from '../serializers/client.serializer'
+import verifyAuthTokenMiddleware from '../middlewares/verifyAuthToken.middleware'
 
 const clientRouter = Router()
 
 clientRouter.post(
-  '',
+  "",
   validateSerializerMiddleware(createClientSerializer),
   createClientControler,
 )
-clientRouter.get('', listClientsControler)
-clientRouter.get('/:id', listClientControler)
-clientRouter.patch(
-  '/:id',
-  updateClientControler,
+clientRouter.get(
+  "", 
+  verifyAuthTokenMiddleware, 
+  listClientsControler
 )
-clientRouter.delete('/;id', deleteClientControler)
+clientRouter.get(
+  "/:id", 
+  verifyAuthTokenMiddleware, 
+  listClientControler
+)
+clientRouter.patch(
+  "/:id",
+  verifyAuthTokenMiddleware,
+  updateClientControler
+)
+clientRouter.delete(
+  "/;id", 
+  verifyAuthTokenMiddleware, 
+  deleteClientControler
+)
 
 export default clientRouter
