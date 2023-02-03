@@ -4,26 +4,26 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
-} from 'typeorm'
-import { Client } from './client.entitie';
+} from "typeorm";
+import { Client } from "./client.entitie";
 
-@Entity('contacts')
+@Entity("contacts")
 export class Contact {
-  @PrimaryGeneratedColumn('uuid')
-  id: string
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Column()
-  name: string
+  name: string;
 
   @Column({ unique: true })
-  email: string
+  email: string;
 
   @Column({ unique: true })
-  tel: string
+  tel: string;
 
   @CreateDateColumn()
-  created_at: Date
+  created_at: Date;
 
   @ManyToOne(() => Client)
-  client: Client
+  client: Client;
 }
