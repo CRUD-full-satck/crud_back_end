@@ -1,4 +1,4 @@
-import { ClientLoginProps } from '../../interfaces/client';
+import { ClientLoginProps } from '../../interfaces';
 import AppDataSource from '../../data-source';
 import { Client } from '../../entities/client.entitie';
 import { AppError } from "../../errors";

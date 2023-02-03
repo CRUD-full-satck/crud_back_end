@@ -7,16 +7,15 @@ interface ClientOrContact {
   created_at: string
 }
 
-export interface ClientProps extends ClientOrContact {
+interface ClientProps extends ClientOrContact {
   contacts: ClientOrContact[]
 }
 export type IClient = Omit<ClientProps, "id" | "create_at">
 
-export interface ContactProps extends ClientOrContact {
+interface ContactProps extends ClientOrContact {
   clients: ClientOrContact[]
 }
 export type IContact = Omit<ContactProps, "id" | "create_at">
-
 
 export interface ClientLoginProps {
   email: string
