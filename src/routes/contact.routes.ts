@@ -7,27 +7,27 @@ import {
 } from "../controllers/contact.controllers";
 import verifyAuthTokenMiddleware from '../middlewares/verifyAuthToken.middleware';
 
-const contactrouter = Router()
+const contactRouter = Router()
 
-contactrouter.post(
-    "/clients", 
+contactRouter.post(
+    "/client", 
     verifyAuthTokenMiddleware, 
     createContactController
 )
-contactrouter.get(
-    "/clients", 
+contactRouter.get(
+    "/client", 
     verifyAuthTokenMiddleware, 
     listContactsController
 )
-contactrouter.patch(
-    "/:id/clients", 
+contactRouter.patch(
+    "/:id/client", 
     verifyAuthTokenMiddleware, 
     updateContactController
 )
-contactrouter.delete(
-    "/:id/clients", 
+contactRouter.delete(
+    "/:id/client", 
     verifyAuthTokenMiddleware, 
     deleteContactController
 )
 
-export default contactrouter
+export default contactRouter
