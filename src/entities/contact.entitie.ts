@@ -4,14 +4,13 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
-  JoinColumn,
 } from 'typeorm'
 import { Client } from './client.entitie';
 
 @Entity('contacts')
 export class Contact {
   @PrimaryGeneratedColumn('uuid')
-  readonly id: string
+  id: string
 
   @Column()
   name: string
@@ -19,14 +18,12 @@ export class Contact {
   @Column({ unique: true })
   email: string
 
-  @Column()
+  @Column({ unique: true })
   tel: string
 
   @CreateDateColumn()
-  readonly created_at: Date
+  created_at: Date
 
-  @ManyToOne(() => Client, {
-    eager: true,
-  })@JoinColumn()
+  @ManyToOne(() => Client)
   client: Client
 }

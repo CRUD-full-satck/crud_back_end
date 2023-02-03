@@ -1,4 +1,3 @@
-import { Exclude } from 'class-transformer'
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -6,12 +5,13 @@ import {
   CreateDateColumn,
   OneToMany,
 } from 'typeorm'
+import { Exclude } from 'class-transformer'
 import { Contact } from './contact.entitie'
 
-@Entity('clients')
+@Entity("clients")
 export class Client {
-  @PrimaryGeneratedColumn('uuid')
-  readonly id: string
+  @PrimaryGeneratedColumn("uuid")
+  id: string
 
   @Column()
   name: string
@@ -19,15 +19,15 @@ export class Client {
   @Column({ unique: true })
   email: string
 
-  @Exclude()
   @Column({ length: 220 })
+  @Exclude()
   password: string
 
   @Column()
   tel: string
 
   @CreateDateColumn()
-  readonly created_at: Date
+  created_at: Date
 
   @OneToMany(() => Contact, contact => contact.client)
   contacts: Contact[]

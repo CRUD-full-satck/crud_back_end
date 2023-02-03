@@ -4,7 +4,6 @@ import deleteContactService from '../services/contact/deleteContact.service'
 import listContactsService from '../services/contact/listContacts.service'
 import updateContactService from '../services/contact/updateContact.service'
 
-
 export const createContactController = async (req: Request, res: Response) => {
     const data = req.body
     const id = req.client.id
@@ -16,7 +15,7 @@ export const createContactController = async (req: Request, res: Response) => {
 
 export const listContactsController = async (req: Request, res: Response) => {
     const id = req.client.id
-
+    
     const contacts = await listContactsService(id)
 
     return res.status(200).json(contacts)

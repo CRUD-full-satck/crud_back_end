@@ -3,7 +3,6 @@ import validateSerializerMiddleware from '../middlewares/validateSerializer.midd
 import {
   createClientControler,
   deleteClientControler,
-  listClientControler,
   listClientsControler,
   updateClientControler,
 } from '../controllers/client.controllers'
@@ -24,18 +23,13 @@ clientRouter.get(
   verifyAuthTokenMiddleware, 
   listClientsControler
 )
-clientRouter.get(
-  "/:id", 
-  verifyAuthTokenMiddleware, 
-  listClientControler
-)
 clientRouter.patch(
-  "/:id",
+  "",
   verifyAuthTokenMiddleware,
   updateClientControler
 )
 clientRouter.delete(
-  "/;id", 
+  "", 
   verifyAuthTokenMiddleware, 
   deleteClientControler
 )
