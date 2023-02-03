@@ -1,4 +1,4 @@
-import { IClient } from '../../interfaces/client'
+import { IClient } from '../../interfaces'
 import { Client } from '../../entities/client.entitie'
 import AppDataSource from '../../data-source'
 import { AppError } from '../../errors'
