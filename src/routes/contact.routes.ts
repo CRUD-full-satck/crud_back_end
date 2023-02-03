@@ -6,12 +6,15 @@ import {
     updateContactController
 } from "../controllers/contact.controllers";
 import verifyAuthTokenMiddleware from '../middlewares/verifyAuthToken.middleware';
+import { createContactSerializer } from "../serializers/contact.serializer";
+import validateSerializerMiddleware from '../middlewares/validateSerializer.middleware';
 
 const contactRouter = Router()
 
 contactRouter.post(
     "/client", 
     verifyAuthTokenMiddleware, 
+    validateSerializerMiddleware(createContactSerializer),
     createContactController
 )
 contactRouter.get(

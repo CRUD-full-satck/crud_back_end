@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import createClientService from '../services/client/createClient.service'
 import listClientService from '../services/client/listClient.service'
-import listClientsService from '../services/client/listClients.service'
 import updateClientService from '../services/client/updateClient.service'
 import deleteClientService from '../services/client/deleteClient.service'
 import { instanceToPlain } from "class-transformer"
@@ -15,7 +14,8 @@ export const createClientControler = async (req: Request, res: Response) => {
 }
 
 export const listClientsControler = async (req: Request, res: Response) => {
-  const clients = await listClientsService()
+  const id = req.client.id
+  const clients = await listClientService(id)
 
   return res.status(200).json(instanceToPlain(clients))
 }
