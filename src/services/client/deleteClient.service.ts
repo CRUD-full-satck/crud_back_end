@@ -6,11 +6,11 @@ const deleteClientService = async (clientId: string): Promise<string> => {
   const clientRepository = AppDataSource.getRepository(Client)
 
   const clientAlreadExists = await clientRepository.findOneBy({ id: clientId })
-  if (clientAlreadExists) throw new AppError('Client is not founf', 404)
+  if (clientAlreadExists) throw new AppError("Client is not found", 404)
 
   await clientRepository.delete({ id: clientId })
 
-  return 'Client deleted!'
+  return "Client deleted!"
 }
 
 export default deleteClientService
