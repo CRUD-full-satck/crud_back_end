@@ -15,14 +15,7 @@ const updateContactService = async (contactData: IContact, contactId: string) =>
         ...contactData
     })
 
-    const updateContact = await contactRepository.findOne({
-        where: {
-            id: contactId
-        },
-        relations: {
-            client: true
-        }
-    })
+    const updateContact = await contactRepository.findOneBy({id: contactId})
     return updateContact
 }
 
