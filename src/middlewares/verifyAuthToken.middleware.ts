@@ -12,7 +12,7 @@ const verifyAuthTokenMiddleware = async (req: Request, res: Response, next: Next
 
     token = token.split(" ")[1]
 
-    jwt.verify(token, process.env.SECRET_KEY as string, (err, decoded: any) => {
+    jwt.verify(token, process.env.SECRET_KEY as string, (err: any, decoded: any) => {
         if(err) {
             return res.status(401).json({
                 message: "Invalid token"

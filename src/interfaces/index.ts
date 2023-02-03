@@ -2,19 +2,21 @@ interface ClientOrContact {
   id: string
   name: string
   email: string
-  password: string
   tel: string
-  created_at: string
+  created_at: Date
 }
 
-interface ClientProps extends ClientOrContact {
+export interface ClientProps extends ClientOrContact {
+  password: string
   contacts: ClientOrContact[]
 }
-export type IClient = Omit<ClientProps, "id" | "create_at">
 
-interface ContactProps extends ClientOrContact {
-  clients: ClientOrContact[]
+export type IClient = Omit<ClientProps, "id" | "create_at"> 
+
+export interface ContactProps extends ClientOrContact {
+  clientId: string
 }
+
 export type IContact = Omit<ContactProps, "id" | "create_at">
 
 export interface ClientLoginProps {
