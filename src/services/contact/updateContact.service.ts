@@ -1,10 +1,10 @@
 import { IContact } from "../../interfaces";
-import AppDataSource from "../../data-source";
+import dataSource from "../../data-source";
 import { Contact } from "../../entities/contact.entitie";
 import { AppError } from "../../errors";
 
 const updateContactService = async (contactData: IContact, contactId: string) => {
-  const contactRepository = AppDataSource.getRepository(Contact);
+  const contactRepository = dataSource.getRepository(Contact);
 
   const validKeys: string[] = ["name", "email", "phone"];
   const datakeys: string[] = Object.keys(contactData);

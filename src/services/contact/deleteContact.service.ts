@@ -1,9 +1,9 @@
-import AppDataSource from "../../data-source";
+import dataSource from "../../data-source";
 import { Contact } from "../../entities/contact.entitie";
 import { AppError } from "../../errors";
 
 const deleteContactService = async (contactId: string): Promise<string> => {
-  const contactRepository = AppDataSource.getRepository(Contact);
+  const contactRepository = dataSource.getRepository(Contact);
 
   const contactAlreadExists = await contactRepository.findOneBy({ id: contactId });
   if (!contactAlreadExists) throw new AppError("Contact not found", 404);

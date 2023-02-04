@@ -1,9 +1,9 @@
 import { Contact } from "../../entities/contact.entitie";
-import AppDataSource from "../../data-source";
+import dataSource from "../../data-source";
 import { Client } from "../../entities/client.entitie";
 
 const listContactsService = async (clientId: string): Promise<Contact[]> => {
-  const clientRepository = AppDataSource.getRepository(Client);
+  const clientRepository = dataSource.getRepository(Client);
 
   const client = await clientRepository.findOne({
     where: {
