@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import dataSource from "../data-source";
 import { Client } from "../entities/client.entitie";
 import { Contact } from "../entities/contact.entitie";
+import { EmailAndPasswordProps } from "../interfaces";
 
 const verifyEmailAndPhoneMiddleware = async (
   req: Request,
@@ -15,21 +16,21 @@ const verifyEmailAndPhoneMiddleware = async (
 
   const array = [...contact, ...client];
 
-  const { phone, email } = req.body;
+  const { phone, email }: EmailAndPasswordProps = req.body;
 
-  for (let i = 0; i <= array.length; i++) {
-    if (array[i].email === email) {
-      return res.status(401).json({
-        message: "Email already registered",
-      });
-    }
+  // for (let i = 0; i <= array.length; i++) {
+  //   if (array[i].email === email) {
+  //     return res.status(401).json({
+  //       message: "Email already registered",
+  //     });
+  //   }
 
-    if (array[i].phone === phone) {
-      return res.status(401).json({
-        message: "Phone already registered",
-      });
-    }
-  }
+  //   if (array[i].phone === phone) {
+  //     return res.status(401).json({
+  //       message: "Phone already registered",
+  //     });
+  //   }
+  // }
 
   return next();
 };
