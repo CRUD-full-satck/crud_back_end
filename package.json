@@ -1,14 +1,15 @@
 {
   "name": "crud_back_end",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.ts",
   "repository": "git@github.com:CRUD-full-satck/crud_back_end.git",
   "author": "Gabriel Alencar <gabrielalencar33564@gmail.com>",
   "license": "MIT",
   "scripts": {
     "typeorm": "typeorm-ts-node-commonjs",
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

@@ -10,7 +10,7 @@ const updateClientService = async (
 ): Promise<Client | null> => {
   const clientRepository = AppDataSource.getRepository(Client);
 
-  const validKeys: string[] = ["name", "password", "email", "tel"];
+  const validKeys: string[] = ["name", "password", "email", "phone"];
   const datakeys: string[] = Object.keys(clientData);
 
   datakeys.forEach((key) => {

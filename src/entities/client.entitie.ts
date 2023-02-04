@@ -23,8 +23,8 @@ export class Client {
   @Exclude()
   password: string;
 
-  @Column()
-  tel: string;
+  @Column({ unique: true })
+  phone: string;
 
   @CreateDateColumn()
   created_at: Date;

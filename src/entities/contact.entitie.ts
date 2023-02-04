@@ -19,7 +19,7 @@ export class Contact {
   email: string;
 
   @Column({ unique: true })
-  tel: string;
+  phone: string;
 
   @CreateDateColumn()
   created_at: Date;
