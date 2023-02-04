@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import AppDataSource from "../data-source";
+import dataSource from "../data-source";
 import { Client } from "../entities/client.entitie";
 import { Contact } from "../entities/contact.entitie";
 
@@ -8,9 +8,9 @@ const verifyEmailAndPhoneMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  const contactRepository = AppDataSource.getRepository(Contact);
+  const contactRepository = dataSource.getRepository(Contact);
   const contact = await contactRepository.find();
-  const clientRepository = AppDataSource.getRepository(Client);
+  const clientRepository = dataSource.getRepository(Client);
   const client = await clientRepository.find();
 
   const array = [...contact, ...client];

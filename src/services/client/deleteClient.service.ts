@@ -1,9 +1,9 @@
-import AppDataSource from "../../data-source";
+import dataSource from "../../data-source";
 import { Client } from "../../entities/client.entitie";
 import { AppError } from "../../errors";
 
 const deleteClientService = async (clientId: string): Promise<string> => {
-  const clientRepository = AppDataSource.getRepository(Client);
+  const clientRepository = dataSource.getRepository(Client);
 
   const clientAlreadExists = await clientRepository.findOneBy({ id: clientId });
   if (clientAlreadExists) throw new AppError("Client is not found", 404);

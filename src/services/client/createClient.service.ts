@@ -1,10 +1,10 @@
 import { IClient } from "../../interfaces";
 import { Client } from "../../entities/client.entitie";
-import AppDataSource from "../../data-source";
+import dataSource from "../../data-source";
 import { hash } from "bcryptjs";
 
 const createClientService = async (clientData: IClient): Promise<Client> => {
-  const clientRepository = AppDataSource.getRepository(Client);
+  const clientRepository = dataSource.getRepository(Client);
 
   const { password } = clientData;
 

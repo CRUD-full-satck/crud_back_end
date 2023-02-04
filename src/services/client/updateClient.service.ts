@@ -1,6 +1,6 @@
 import { Client } from "../../entities/client.entitie";
 import { AppError } from "../../errors/index";
-import AppDataSource from "../../data-source";
+import dataSource from "../../data-source";
 import { ClientProps } from "../../interfaces/index";
 import { hash } from "bcryptjs";
 
@@ -8,7 +8,7 @@ const updateClientService = async (
   clientData: ClientProps,
   clientId: string
 ): Promise<Client | null> => {
-  const clientRepository = AppDataSource.getRepository(Client);
+  const clientRepository = dataSource.getRepository(Client);
 
   const validKeys: string[] = ["name", "password", "email", "phone"];
   const datakeys: string[] = Object.keys(clientData);

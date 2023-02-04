@@ -1,5 +1,5 @@
 import { ClientLoginProps } from "../../interfaces";
-import AppDataSource from "../../data-source";
+import dataSource from "../../data-source";
 import { Client } from "../../entities/client.entitie";
 import { AppError } from "../../errors";
 import { compare } from "bcryptjs";
@@ -10,7 +10,7 @@ const clientLoginService = async ({
   email,
   password,
 }: ClientLoginProps): Promise<string> => {
-  const clientRepository = AppDataSource.getRepository(Client);
+  const clientRepository = dataSource.getRepository(Client);
 
   const client = await clientRepository.findOneBy({ email });
   if (!client) throw new AppError("Email or Password invalid", 403);
