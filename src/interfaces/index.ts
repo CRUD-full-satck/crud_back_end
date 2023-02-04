@@ -2,7 +2,7 @@ interface ClientOrContact {
   id: string;
   name: string;
   email: string;
-  tel: string;
+  phone: string;
   created_at: Date;
 }
 
