@@ -1,5 +1,5 @@
 # crud_back_end
-Esse projeto é um crud simples de clientes, que poderá ser feito um cadastro de contatos, que nem uma agenda de contatos.
+Esse projeto é um crud simples de clientes, tais quais poderão cadastrar, atualizar, listar ou deletar os contatos desejados.
 
 Para seu desenvolvimento, foi utilizado a linguagem `Typescript` com seu poderoso framework `Node.js com o Express`.
 
