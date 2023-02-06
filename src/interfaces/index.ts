@@ -23,3 +23,8 @@ export interface ClientLoginProps {
   email: string;
   password: string;
 }
+
+export interface EmailAndPasswordProps {
+  email: string;
+  phone: string;
+}

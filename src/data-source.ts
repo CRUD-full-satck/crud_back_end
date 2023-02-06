@@ -30,9 +30,9 @@ const setDataSourceConfig = (): DataSourceOptions => {
   return {
     type: "postgres",
     host: process.env.HOST,
+    port: 5432,
     username: process.env.POSTGRES_USERNAME,
     password: process.env.POSTGRES_PASSWORD,
-    port: 5432,
     database: process.env.POSTGRES_DATABASE,
     logging: true,
     synchronize: false,
