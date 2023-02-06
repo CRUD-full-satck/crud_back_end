@@ -23,7 +23,7 @@ export const listContactsController = async (req: Request, res: Response) => {
 
 export const updateContactController = async (req: Request, res: Response) => {
   const data = req.body;
-  const id = req.params.ids;
+  const id = req.params.id;
 
   const contact = await updateContactService(data, id);
 
